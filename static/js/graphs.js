@@ -240,7 +240,7 @@ d3.json("/asthma/projects").then(function(data) {
                 return d.properties.name;
             })
             .projection(d3.geoAlbersUsa()
-                        .scale(usChart.height() * 2)
+                        .scale((usChart.height() + usChart.width()) / 1.5)
                         .translate([usChart.width() / 2, usChart.height() / 2]))
             .title(function (p) {
                 return "State: " + p["key"]
