@@ -174,7 +174,7 @@ d3.json("/asthma/projects").then(function(data) {
         .ordering(function(d){ return -d.value.avg})
         .othersGrouper(false)
         .width(null)
-        .height(300)
+        .height(null)
         .dimension(ageDim)
         .group(percentByAge).valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
@@ -187,7 +187,7 @@ d3.json("/asthma/projects").then(function(data) {
         .cap(10)
         .othersGrouper(false)
         .width(null)
-        .height(300)
+        .height(null)
         .dimension(stateNameDim)
         .group(percentByState).valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
@@ -197,7 +197,7 @@ d3.json("/asthma/projects").then(function(data) {
 
         yearChart
         .width(null)
-        .height(250)
+        .height(null)
         .x(d3.scaleTime().domain([d3.timeYear.floor(new Date("2011-03-31 00:00:00")), d3.timeYear.ceil(new Date("2023-03-31 10:00:00"))]))
         .yAxisLabel("Asthma Cases (100,000s)")
         .xAxisLabel("Year")
@@ -211,7 +211,7 @@ d3.json("/asthma/projects").then(function(data) {
 
         yearPercentChart
         .width(null)
-        .height(250)
+        .height(null)
         .x(d3.scaleTime().domain([d3.timeYear.floor(new Date("2011-03-31 00:00:00")), d3.timeYear.ceil(new Date("2023-03-31 10:00:00"))]))
         //.y(d3.scaleLinear().domain([6, 13]))
         .yAxisLabel("Percent of Population with Asthma")
