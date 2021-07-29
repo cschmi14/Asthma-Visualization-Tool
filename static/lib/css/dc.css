@@ -84,6 +84,14 @@
 .dc-chart g.deselected path {
   fill: #808080; }
 
+/* #age-cases-chart {
+  pointer-events: none;
+}
+
+#year-chart {
+  pointer-events: none;
+} */
+
 .dc-chart g.deselected text {
   display: none; }
 

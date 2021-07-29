@@ -19,31 +19,30 @@ d3.json("/asthma/projects").then(function(data) {
         var ageDim = ndx.dimension(function(d) { return d.Income; });
 
         var sumCases = yearDim.groupAll().reduceSum(function(d) {return d.Num_Cases});
-        var avgCases = percentCasesDim.group().reduce(
+        var avgPercent = yearDim.group().reduce(
             // add 
             function (p,v){
-                p.totalCases += v.Num_Cases; 
+                p.totalPower += v["Percent_Cases"]; 
                 p.count++; 
-                p.avg = (p.totalCases / p.count);
+                p.avg = (p.totalPower / p.count);
                 return p;
             },
             // remove
             function (p,v){
-                p.totalCases -= v.Num_Cases; 
+                p.totalPower -= v["Percent_Cases"]; 
                 p.count--; 
-                p.avg = (p.totalCases / p.count);
+                p.avg = (p.totalPower / p.count);
                 return p;
             },
             // init
             function init (){ 
                 return {
-                totalCases: 0, 
+                totalPower: 0, 
                 count: 0,
                 avg: 0
                 };
             }
-            )
-            .order (function (d){return d.avg;});
+            );
         var numCasesByState = stateNameDim.group().reduceSum(function(d) {return (Math.round(d.Num_Cases))});
         var percentByAge = ageDim.group().reduce(
             // add 
@@ -162,32 +161,33 @@ d3.json("/asthma/projects").then(function(data) {
         .group(sumCases);
 
         avgCasesND
-        .formatNumber(d3.format("d"))
+        .formatNumber(d3.format("r"))
         .valueAccessor(function(d){return d.value.avg; })
         .html({
             some:"<span style=\"color:black; font-size: 60px;\">%number</span>",
           })
-        .group(avgCases);
+        .group(avgPercent);
 
 
         ageCasesChart
-        .ordering(function(d){ return -d.value.avg})
+        .ordering(function(d){ return d.value.avg})
+        .cap(10)
         .othersGrouper(false)
         .width(null)
-        .height(usChart.height() + usChart.width() / 3.4)
-        .dimension(ageDim)
-        .group(percentByAge).valueAccessor(function(d) {
+        .height(usChart.height() + usChart.width() / 3.7)
+        .dimension(stateNameDim)
+        .group(percentByState).valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
         })
         .elasticX(true)
-        .xAxis().ticks(6)
+        .xAxis().ticks(6);
 
         yearCasesChart
         .ordering(function(d){ return -d.value.avg})
         .cap(10)
         .othersGrouper(false)
         .width(null)
-        .height(usChart.height() + usChart.width() / 3.4)
+        .height(usChart.height() + usChart.width() / 3.7)
         .dimension(stateNameDim)
         .group(percentByState).valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
@@ -197,9 +197,10 @@ d3.json("/asthma/projects").then(function(data) {
 
         yearChart
         .width(null)
-        .height(usChart.height() + usChart.width() / 3.4)
+        .height(usChart.height() + usChart.width() / 3.7)
         .ordering(function(d){ return -d.value.avg})
         .margins({ top: 10, left: 30, right: 10, bottom: 75})
+        .brushOn(false)
         .dimension(ageDim)
         .group(percentByAge).valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
@@ -221,7 +222,7 @@ d3.json("/asthma/projects").then(function(data) {
 
         yearPercentChart
         .width(null)
-        .height(usChart.height() + usChart.width() / 3.4)
+        .height(usChart.height() + usChart.width() / 3.7)
         .margins({ top: 10, left: 30, right: 10, bottom: 50})
         .x(d3.scaleTime().domain([d3.timeYear.floor(new Date("2011-03-31 00:00:00")), d3.timeYear.ceil(new Date("2023-03-31 10:00:00"))]))
         //.y(d3.scaleLinear().domain([6, 13]))
@@ -246,7 +247,7 @@ d3.json("/asthma/projects").then(function(data) {
         );;
 
         usChart.width(null)
-        .height(usChart.width() / 1.2)
+        .height(usChart.width() / 1.1)
         .dimension(stateNameDim)
             .group(percentByState).valueAccessor(function(d) {
                 return Math.round(d.value.avg * 1000) / 1000;
