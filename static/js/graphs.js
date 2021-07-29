@@ -221,7 +221,7 @@ d3.json("/asthma/projects").then(function(data) {
 
         yearPercentChart
         .width(null)
-        .height(yearPercentChart.width() / 1.8)
+        .height(yearPercentChart.width() / 1.6)
         .margins({ top: 10, left: 30, right: 10, bottom: 50})
         .x(d3.scaleTime().domain([d3.timeYear.floor(new Date("2011-03-31 00:00:00")), d3.timeYear.ceil(new Date("2023-03-31 10:00:00"))]))
         //.y(d3.scaleLinear().domain([6, 13]))
@@ -246,7 +246,7 @@ d3.json("/asthma/projects").then(function(data) {
         );;
 
         usChart.width(null)
-        .height(usChart.width() / 1.5)
+        .height(usChart.width() / 1.3)
         .dimension(stateNameDim)
             .group(percentByState).valueAccessor(function(d) {
                 return Math.round(d.value.avg * 1000) / 1000;
