@@ -145,7 +145,7 @@ d3.json("/asthma/projects").then(function(data) {
             }
             );
 
-        var yearChart = dc.barChart("#year-line-chart");
+        var yearChart = dc.lineChart("#year-line-chart");
         var yearPercentChart = dc.lineChart("#percent-line-chart");
         var usChart = dc.geoChoroplethChart("#us-chart");
         var ageCasesChart = dc.rowChart("#age-cases-chart");
