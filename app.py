@@ -19,10 +19,10 @@ FIELDS = {'Year': True, 'State_Name': True, 'Num_Cases': True, 'Percent_Cases': 
 @app.route("/")
 def index():
     return render_template("index.html")
-
+#os.getenv("MONGODB_URI"), 
 @app.route("/asthma/projects")
 def asthma_projects():
-    connection = MongoClient(os.getenv("MONGODB_URI"))
+    connection = MongoClient(MONGODB_HOST)
     collection = connection[DBS_NAME][COLLECTION_NAME]
     projects = collection.find(projection=FIELDS)
     json_projects = []
