@@ -199,10 +199,12 @@ d3.json("/asthma/projects").then(function(data) {
         .width(null)
         .height(250)
         .dimension(ageDim)
-        .group(numCasesByIncome)
+        .group(percentByAge).valueAccessor(function(d) {
+            return Math.round(d.value.avg * 1000) / 1000;
+        })
         .x(d3.scaleBand())
         .xUnits(dc.units.ordinal)
-        .yAxisLabel("Asthma Cases (100,000s)")
+        .yAxisLabel("Average Asthma Percentage")
         .xAxisLabel("Income")
         .elasticY(true)
         .transitionDuration(500)
