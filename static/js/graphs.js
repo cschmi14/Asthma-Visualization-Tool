@@ -145,7 +145,7 @@ d3.json("/asthma/projects").then(function(data) {
             }
             );
 
-        var yearChart = dc.lineChart("#year-line-chart");
+        var yearChart = dc.barChart("#year-line-chart");
         var yearPercentChart = dc.lineChart("#percent-line-chart");
         var usChart = dc.geoChoroplethChart("#us-chart");
         var ageCasesChart = dc.rowChart("#age-cases-chart");
@@ -240,7 +240,7 @@ d3.json("/asthma/projects").then(function(data) {
                 return d.properties.name;
             })
             .projection(d3.geoAlbersUsa()
-                        .scale((usChart.height() + usChart.width()) / 1.5)
+                        .scale((usChart.height() + usChart.width()) / 1.7)
                         .translate([usChart.width() / 2, usChart.height() / 2]))
             .title(function (p) {
                 return "State: " + p["key"]
