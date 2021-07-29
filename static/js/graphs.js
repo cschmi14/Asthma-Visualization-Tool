@@ -202,7 +202,7 @@ d3.json("/asthma/projects").then(function(data) {
         .xAxisLabel("Income")
         .elasticY(true)
         .yAxisPadding(2)
-        .dimension(yearDim)
+        .dimension(ageDim)
         .group(numCasesByIncome)
         .transitionDuration(500);
 
