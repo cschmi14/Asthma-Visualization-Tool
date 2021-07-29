@@ -212,6 +212,7 @@ d3.json("/asthma/projects").then(function(data) {
         .renderlet(
             function (yearChart) {
                 yearChart.selectAll('g.x text')
+                         .attr('dx', '-30')
                          .attr('transform', 'rotate(-65)');
             }
         );
