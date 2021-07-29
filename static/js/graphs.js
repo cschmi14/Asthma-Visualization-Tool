@@ -174,7 +174,7 @@ d3.json("/asthma/projects").then(function(data) {
         .ordering(function(d){ return -d.value.avg})
         .othersGrouper(false)
         .width(null)
-        .height(ageCasesChart.width() / 1.2)
+        .height(ageCasesChart.width() / 1.1)
         .dimension(ageDim)
         .group(percentByAge).valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
@@ -187,7 +187,7 @@ d3.json("/asthma/projects").then(function(data) {
         .cap(10)
         .othersGrouper(false)
         .width(null)
-        .height(yearCasesChart.width() / 1.2)
+        .height(yearCasesChart.width() / 1.4)
         .dimension(stateNameDim)
         .group(percentByState).valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
@@ -197,7 +197,7 @@ d3.json("/asthma/projects").then(function(data) {
 
         yearChart
         .width(null)
-        .height(yearChart.width() / 1.6)
+        .height(yearChart.width() / 1.8)
         .ordering(function(d){ return -d.value.avg})
         .margins({ top: 10, left: 30, right: 10, bottom: 75})
         .dimension(ageDim)
@@ -221,7 +221,7 @@ d3.json("/asthma/projects").then(function(data) {
 
         yearPercentChart
         .width(null)
-        .height(yearPercentChart.width() / 1.6)
+        .height(yearPercentChart.width() / 1.8)
         .margins({ top: 10, left: 30, right: 10, bottom: 50})
         .x(d3.scaleTime().domain([d3.timeYear.floor(new Date("2011-03-31 00:00:00")), d3.timeYear.ceil(new Date("2023-03-31 10:00:00"))]))
         //.y(d3.scaleLinear().domain([6, 13]))
