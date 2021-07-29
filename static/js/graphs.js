@@ -198,7 +198,7 @@ d3.json("/asthma/projects").then(function(data) {
         yearChart
         .width(null)
         .height(250)
-        .x(d3.scale.ordinal().domain(ageDim))
+        .x(d3.scaleOrdinal().domain(ageDim))
         .xUnits(dc.units.ordinal)
         .yAxisLabel("Asthma Cases (100,000s)")
         .xAxisLabel("Income")
@@ -206,7 +206,8 @@ d3.json("/asthma/projects").then(function(data) {
         .yAxisPadding(2)
         .dimension(ageDim)
         .group(numCasesByIncome)
-        .transitionDuration(500);
+        .transitionDuration(500)
+        .gap(10);
 
         yearPercentChart
         .width(null)
