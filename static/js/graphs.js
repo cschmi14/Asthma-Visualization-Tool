@@ -200,12 +200,11 @@ d3.json("/asthma/projects").then(function(data) {
         .height(250)
         .dimension(ageDim)
         .group(numCasesByIncome)
-        .x(d3.scaleOrdinal().domain(ageDim))
+        .x(d3.scaleBand())
         .xUnits(dc.units.ordinal)
         .yAxisLabel("Asthma Cases (100,000s)")
         .xAxisLabel("Income")
         .elasticY(true)
-        .yAxisPadding(2)
         .transitionDuration(500)
         .gap(10);
 
