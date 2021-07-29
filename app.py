@@ -22,7 +22,7 @@ def index():
 #os.getenv("MONGODB_URI"), 
 @app.route("/asthma/projects")
 def asthma_projects():
-    connection = MongoClient(MONGODB_HOST)
+    connection = MongoClient(os.getenv("MONGODB_URI"))
     collection = connection[DBS_NAME][COLLECTION_NAME]
     projects = collection.find(projection=FIELDS)
     json_projects = []
