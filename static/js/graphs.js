@@ -174,7 +174,7 @@ d3.json("/asthma/projects").then(function(data) {
         .ordering(function(d){ return -d.value.avg})
         .othersGrouper(false)
         .width(null)
-        .height(275)
+        .height(265)
         .dimension(ageDim)
         .group(percentByAge).valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
@@ -197,7 +197,7 @@ d3.json("/asthma/projects").then(function(data) {
 
         yearChart
         .width(null)
-        .height(275)
+        .height(265)
         .ordering(function(d){ return -d.value.avg})
         .margins({ top: 10, left: 30, right: 10, bottom: 75})
         .dimension(ageDim)
