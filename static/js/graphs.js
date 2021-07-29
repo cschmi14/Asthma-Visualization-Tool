@@ -198,6 +198,8 @@ d3.json("/asthma/projects").then(function(data) {
         yearChart
         .width(null)
         .height(250)
+        .x(d3.scale.ordinal().domain(ageDim))
+        .xUnits(dc.units.ordinal)
         .yAxisLabel("Asthma Cases (100,000s)")
         .xAxisLabel("Income")
         .elasticY(true)
