@@ -70,7 +70,7 @@ d3.json("/asthma/projects").then(function(data) {
             }
             );
         var numCasesByYear = yearDim.group().reduceSum(function(d) {return d.Num_Cases / 100000}); 
-        var numCasesByIncome = ageDim.group().reduceSum(function(d) {return d.Num_Cases});
+        var numCasesByIncome = ageDim.group().reduceSum(function(d) {return d.Num_Cases / 100000});
         var percentByYear = yearDim.group().reduce(
             // add 
             function (p,v){
@@ -145,7 +145,7 @@ d3.json("/asthma/projects").then(function(data) {
             }
             );
 
-        var yearChart = dc.lineChart("#year-line-chart");
+        var yearChart = dc.barChart("#year-line-chart");
         var yearPercentChart = dc.lineChart("#percent-line-chart");
         var usChart = dc.geoChoroplethChart("#us-chart");
         var ageCasesChart = dc.rowChart("#age-cases-chart");
@@ -198,16 +198,13 @@ d3.json("/asthma/projects").then(function(data) {
         yearChart
         .width(null)
         .height(250)
-        .x(d3.scaleTime().domain([d3.timeYear.floor(new Date("2011-03-31 00:00:00")), d3.timeYear.ceil(new Date("2023-03-31 10:00:00"))]))
         .yAxisLabel("Asthma Cases (100,000s)")
-        .xAxisLabel("Year")
+        .xAxisLabel("Income")
         .elasticY(true)
         .yAxisPadding(2)
-        .round(d3.timeYear.round)
         .dimension(yearDim)
-        .group(numCasesByYear)
-        .transitionDuration(500)
-        .xUnits(d3.timeYears);
+        .group(numCasesByIncome)
+        .transitionDuration(500);
 
         yearPercentChart
         .width(null)
