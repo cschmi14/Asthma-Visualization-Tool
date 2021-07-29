@@ -208,7 +208,13 @@ d3.json("/asthma/projects").then(function(data) {
         .xAxisLabel("Income")
         .elasticY(true)
         .transitionDuration(500)
-        .gap(10);
+        .gap(10)
+        .renderlet(
+            function (yearChart) {
+                yearChart.selectAll('g.x text')
+                         .attr('transform', 'rotate(-65)');
+            }
+        );
 
         yearPercentChart
         .width(null)
@@ -218,7 +224,6 @@ d3.json("/asthma/projects").then(function(data) {
         .yAxisLabel("Percent of Population with Asthma")
         .xAxisLabel("Year")
         .elasticY(true)
-        .brushOn(false)
         .yAxisPadding(0.5)
         .round(d3.timeYear.round)
         .dimension(yearDim)
