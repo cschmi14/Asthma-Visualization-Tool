@@ -258,10 +258,10 @@ d3.json("/asthma/projects").then(function(data) {
                          .attr('dx', '-20')
                          .attr('transform', 'rotate(-65)');
             }
-        );;
+        );
 
         usChart.width(null)
-        .height(usChart.width() / 1.1)
+        .height(usChart.width() / 1.5)
         .dimension(stateNameDim)
             .group(percentByState).valueAccessor(function(d) {
                 return Math.round(d.value.avg * 1000) / 1000;
