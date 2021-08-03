@@ -92,6 +92,10 @@
   pointer-events: none;
 } */
 
+#percent-line-chart {
+  pointer-events: none;
+}
+
 .dc-chart g.deselected text {
   display: none; }
 
