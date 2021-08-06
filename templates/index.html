@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="./static/lib/css/dc.css">
   <script src="./static/lib/js/dc.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js" integrity="sha512-0x7/VCkKLLt4wnkFqI8Cgv6no+AaS1TDgmHLOoU3hy/WVtYta2J6gnOIHhYYDJlDxPqEqAYLPS4gzVex4mGJLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/4.2.7/dc.min.js" integrity="sha512-vIRU1/ofrqZ6nA3aOsDQf8kiJnAHnLrzaDh4ob8yBcJNry7Czhb8mdKIP+p8y7ixiNbT/As1Oii9IVk+ohSFiA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js" integrity="sha512-nlO6OGj6wb0uu/thpSry7qFal63hfhCLExpWxYomYB3tBznqWmKggsDHNHSLjnVaoade9tv/rErN498NSzwBnA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.js" integrity="sha512-AxVvqPXa38W1cR1DEcxNLBO+tI52iSuWZSnMR1yqRv9aIEPh6s2pIhCN64XLaxgaL5BTlPNB3xSb7XAv1I7n3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-queue/3.0.7/d3-queue.min.js" integrity="sha512-XDtsnRieTqWDkhAqVuJigtbHaDy7+V39nZ99Mn66LAmnxdb/kjdiffUkL3pZEX2x/nfs8+ftBLgFpXQGhQ4M2Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-scale/0.0.1/scale.js" integrity="sha512-xrrxggGL0oQcZ+UQOZnwdnj1miGZPtTD2lgJqqcGZZM2CcDZfUXsJN4/nuXJxKI+uBENrvCRiJ4pfV3dTz6B3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -56,54 +56,77 @@
           </div>
           <!-- Time Chart --> 
 
-          <!-- Resources Pie -->
-          <div class="col-sm-7">
+          <!-- Map -->  
+          <div class="col-sm-12">
             <div class="chart-wrapper">
               <div class="chart-title">
-                Average Asthma Percentage by Income Bracket                   
+                Percentage of Populations with Asthma by State           
               </div>
               <div class="chart-stage">
-                <div id="year-line-chart"></div>
+                <div id="us-chart"></div>
               </div>
             </div>
           </div>
-          <!-- Resources Pie -->
-
-          <!-- Poverty Pie -->
-          <div class="col-sm-5">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Bottom 10 States by Asthma Percentage                     
-              </div>
-              <div class="chart-stage">
-                <div id="age-cases-chart"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Poverty Pie -->
+          <!-- Map -->
 
         </div>
       </div>
 
-      <!-- Map -->  
-      <div class="col-sm-6">
+      <div class="col-sm-3">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Percentage of Populations with Asthma by State           
+            Average Asthma Percentage by Income Bracket                   
           </div>
           <div class="chart-stage">
-            <div id="us-chart"></div>
+            <div id="year-line-chart"></div>
           </div>
         </div>
       </div>
-      <!-- Map -->
+      <!-- Resources Pie -->
 
+      <!-- Poverty Pie -->
+      <div class="col-sm-3">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Average Asthma Percentage by Age Bracket                
+          </div>
+          <div class="chart-stage">
+            <div id="age-cases-chart"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Poverty Pie -->
+
+      <div class="col-sm-3">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Average Asthma Percentage by Education Level              
+          </div>
+          <div class="chart-stage">
+            <div id="edu-cases-chart"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Resources Pie -->
+
+      <!-- Poverty Pie -->
+      <div class="col-sm-3">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Average Asthma Percentage by Race/Ethnicity                    
+          </div>
+          <div class="chart-stage">
+            <div id="race-cases-chart"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Poverty Pie -->
 
       <!-- Metric 2 -->
       <div class="col-sm-6">
         <div class="chart-wrapper">
           <div class="chart-title">
-             Total Asthma Cases                                       
+             Average Yearly Asthma Cases                                       
           </div>
           <div class="chart-stage">
             <div id="cases-display"></div>
@@ -116,7 +139,7 @@
       <div class="col-sm-3">
         <div class="chart-wrapper">
           <div class="chart-title">
-             Average Asthma Cases
+             Average Asthma Cases Per State/Year
           </div>
           <div class="chart-stage">
             <div id="avg-percent-display"></div>

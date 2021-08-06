@@ -14,7 +14,7 @@ app = Flask(__name__)
 MONGODB_HOST = 'mongodb+srv://user:asthmadatapass@cluster0.6mmas.mongodb.net/asthma?retryWrites=true&w=majority'
 DBS_NAME = 'asthma'
 COLLECTION_NAME = 'projects'
-FIELDS = {'Year': True, 'State_Name': True, 'Num_Cases': True, 'Percent_Cases': True, "Income": True, '_id': False}
+FIELDS = {'Year': True, 'State_Name': True, 'Num_Cases': True, 'Percent_Cases': True, "Age": True, "Income": True, 'Race': True, 'Education': True, '_id': False}
 
 @app.route("/")
 def index():
