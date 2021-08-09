@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width = device-width, initial-scale = 1">
   <title>Asthma Dashboard</title>
   <link rel="stylesheet" href="./static/lib/css/bootstrap.min.css">
   <link rel="stylesheet" href="./static/lib/css/keen-dashboards.css">
@@ -11,7 +12,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-queue/3.0.7/d3-queue.min.js" integrity="sha512-XDtsnRieTqWDkhAqVuJigtbHaDy7+V39nZ99Mn66LAmnxdb/kjdiffUkL3pZEX2x/nfs8+ftBLgFpXQGhQ4M2Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-scale/0.0.1/scale.js" integrity="sha512-xrrxggGL0oQcZ+UQOZnwdnj1miGZPtTD2lgJqqcGZZM2CcDZfUXsJN4/nuXJxKI+uBENrvCRiJ4pfV3dTz6B3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 </head>
 <body class="application">
 
@@ -27,11 +27,11 @@
 
     <div class="row">
 
-      <div class="col-sm-6">
+      <div class="col-lg-6 col-sm-6">
         <div class="row">
 
           <!-- Time Chart --> 
-          <div class="col-sm-7">
+          <div class="col-lg-7 col-sm-7">
             <div class="chart-wrapper">
               <div class="chart-title">
                 Average Percent of Asthma Cases from 2011-2019       
@@ -44,7 +44,7 @@
           <!-- Time Chart --> 
 
           <!-- Time Chart --> 
-          <div class="col-sm-5">
+          <div class="col-lg-5 col-sm-5">
             <div class="chart-wrapper">
               <div class="chart-title">
                 Top 10 States by Asthma Percentage   
@@ -57,7 +57,7 @@
           <!-- Time Chart --> 
 
           <!-- Map -->  
-          <div class="col-sm-12">
+          <div class="col-lg-12 col-sm-12">
             <div class="chart-wrapper">
               <div class="chart-title">
                 Percentage of Populations with Asthma by State           
@@ -72,7 +72,7 @@
         </div>
       </div>
 
-      <div class="col-sm-3">
+      <div class="col-lg-3 col-sm-3">
         <div class="chart-wrapper">
           <div class="chart-title">
             Average Asthma Percentage by Income Bracket                   
@@ -85,10 +85,10 @@
       <!-- Resources Pie -->
 
       <!-- Poverty Pie -->
-      <div class="col-sm-3">
+      <div class="col-lg-3 col-sm-3">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Average Asthma Percentage by Age Bracket                
+            Average Asthma Percentage by Age Bracket (>=18)              
           </div>
           <div class="chart-stage">
             <div id="age-cases-chart"></div>
@@ -97,7 +97,7 @@
       </div>
       <!-- Poverty Pie -->
 
-      <div class="col-sm-3">
+      <div class="col-lg-3 col-sm-3">
         <div class="chart-wrapper">
           <div class="chart-title">
             Average Asthma Percentage by Education Level              
@@ -110,7 +110,7 @@
       <!-- Resources Pie -->
 
       <!-- Poverty Pie -->
-      <div class="col-sm-3">
+      <div class="col-lg-3 col-sm-3">
         <div class="chart-wrapper">
           <div class="chart-title">
             Average Asthma Percentage by Race/Ethnicity                    
@@ -123,7 +123,7 @@
       <!-- Poverty Pie -->
 
       <!-- Metric 2 -->
-      <div class="col-sm-6">
+      <div class="col-lg-6 col-sm-6">
         <div class="chart-wrapper">
           <div class="chart-title">
              Average Yearly Asthma Cases                                       
@@ -136,7 +136,7 @@
       <!-- Metric 2 -->
 
       <!-- Metric 2 -->
-      <div class="col-sm-3">
+      <div class="col-lg-3 col-sm-3">
         <div class="chart-wrapper">
           <div class="chart-title">
              Asthma Cases Per State/Year
@@ -149,7 +149,7 @@
       <!-- Metric 2 -->
 
       <!-- Metric 2 -->
-      <div class="col-sm-3">
+      <div class="col-lg-3 col-sm-3">
         <div class="chart-wrapper">
           <div class="chart-title">
              Average Asthma Percentage
@@ -164,7 +164,7 @@
   </div>
 
     <hr>
-    <p class="small text-muted">Built with &#9829; by <a href="https://keen.io">Keen IO</a></p>
+    <p class="small text-muted">Data from <a href="https://www.cdc.gov/asthma/brfss/default.htm">CDC.gov</a></p>
 
   </div>
 
