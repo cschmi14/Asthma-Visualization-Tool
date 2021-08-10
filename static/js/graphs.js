@@ -66,7 +66,7 @@ d3.json("/asthma/projects").then(function(data) {
                 };
             }
             );
-        var numCasesByState = stateNameDim.group().reduceSum(function(d) {return (Math.round(d.Num_Cases))});
+        var numCasesByRace = raceDim.group().reduceSum(function(d) {return (Math.round(d.Num_Cases))});
         var percentByIncome = incomeDim.group().reduce(
             // add 
             function (p,v){
@@ -247,7 +247,7 @@ d3.json("/asthma/projects").then(function(data) {
         var yearPercentChart = dc.lineChart("#percent-line-chart");
         var usChart = dc.geoChoroplethChart("#us-chart");
         var ageCasesChart = dc.barChart("#age-cases-chart");
-        var raceCasesChart = dc.pieChart("#race-cases-chart");
+        var raceCasesChart = dc.barChart("#race-cases-chart");
         var eduCasesChart = dc.barChart("#edu-cases-chart");
         var yearCasesChart = dc.rowChart("#year-chart");
         var totalCasesND = dc.numberDisplay("#cases-display");
@@ -315,15 +315,28 @@ d3.json("/asthma/projects").then(function(data) {
         );
         
         raceCasesChart
-        .ordering(function(d){ return -d.value.avg})
         .width(null)
         .height(usChart.height() + usChart.width() / 3.6)
-        .dimension(raceDim)
+        .ordering(function(d){ return d.value.avg})
+        .margins({ top: 10, left: 30, right: 10, bottom: 75})
+        .dimension(eduDim)
         .group(percentByRace).valueAccessor(function(d) {
-            if (d.key != "1")
+            if (d.key != 1)
             return Math.round(d.value.avg * 1000) / 1000;
         })
-        .transitionDuration(500);
+        .x(d3.scaleOrdinal().domain(["Multirace NH", "Black NH", "White NH", "Hispanic", "Other NH"]))
+        .xUnits(dc.units.ordinal)
+        .yAxisLabel("Average Asthma Percentage")
+        .xAxisLabel("Race")
+        .elasticY(true)
+        .transitionDuration(500)
+        .gap(10)
+        .renderlet(
+            function (yearChart) {
+                yearChart.selectAll('g.x text')
+                         .attr('dx', '-30')
+                         .attr('transform', 'rotate(-65)');
+                });
 
         eduCasesChart
         .width(null)
