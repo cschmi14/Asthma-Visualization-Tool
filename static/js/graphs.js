@@ -291,7 +291,7 @@ d3.json("/asthma/projects").then(function(data) {
 
         ageCasesChart
         .width(null)
-        .height(usChart.height() + usChart.width() / 3.7)
+        .height(usChart.height() + usChart.width() / 3.6)
         .ordering(function(d){ return -d.value.avg})
         .margins({ top: 10, left: 30, right: 10, bottom: 75})
         .dimension(ageDim)
