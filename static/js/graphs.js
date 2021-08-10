@@ -446,7 +446,7 @@ d3.json("/asthma/projects").then(function(data) {
         .group(avgPercent);
 
         avgCasesND.value = function() {
-            return (Math.round(avgPercent.value().avg * 1000) / 1000);
+            return (Math.round(avgcases.value().cases2022 * 1000) / 1000);
         };
 
         avgPercentND
