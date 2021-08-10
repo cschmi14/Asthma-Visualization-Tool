@@ -431,6 +431,7 @@ d3.json("/asthma/projects").then(function(data) {
             }
         );
 
+
         usChart.width(null)
         .height(usChart.width() / 1.5)
         .dimension(stateNameDim)
