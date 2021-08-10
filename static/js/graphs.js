@@ -621,7 +621,7 @@ d3.json("/asthma/projects").then(function(data) {
         yearCasesChart
         .ordering(function(d){ return -d.value.avg})
         .cap(10)
-        .margins({ top: 10, left: 5, right: 75, bottom: 50})
+        .margins({ top: 10, left: 5, right: 80, bottom: 50})
         .othersGrouper(false)
         .width(null)
         .height(usChart.height() + usChart.width() / 3.7)
