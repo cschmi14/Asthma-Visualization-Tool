@@ -285,7 +285,7 @@ d3.json("/asthma/projects").then(function(data) {
         .group(avgCases);
 
         avgPercentND.value = function() {
-            return avgCases.value().avg;
+            return (Math.round(avgCases.value().avg * 1000) / 1000);
         };
 
 
@@ -433,7 +433,12 @@ d3.json("/asthma/projects").then(function(data) {
 
 
         usChart.width(null)
-        .height(usChart.width() / 1.5)
+        .height(function() {
+            if (window.innerWidth < 768) {
+                return usChart.width() / 2;
+            }
+            return usChart.width() / 1.5;
+        })
         .dimension(stateNameDim)
             .group(percentByState).valueAccessor(function(d) {
                 return Math.round(d.value.avg * 1000) / 1000;
