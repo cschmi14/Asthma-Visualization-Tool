@@ -420,6 +420,7 @@ d3.json("/asthma/projects").then(function(data) {
         })
         .transitionDuration(500)
         .xUnits(d3.timeYears)
+        .renderHorizontalGridLines(true)
         .renderlet(
             function (yearChart) {
                 yearChart.selectAll('g.x text')
