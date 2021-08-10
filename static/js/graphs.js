@@ -36,7 +36,6 @@ d3.json("/asthma/projects").then(function(data) {
         var numCasesDim = ndx.dimension(function(d) { return d.Num_Cases; });
         var percentCasesDim = ndx.dimension(function(d) { return d.Percent_Cases; });
         var incomeDim = ndx.dimension(function(d) { return d.Income; });
-        console.log(data.Income);
         var ageDim = ndx.dimension(function(d) { return d.Age});
         var eduDim = ndx.dimension(function(d) { return d.Education});
         var raceDim = ndx.dimension(function(d) { return d.Race});
@@ -217,8 +216,8 @@ d3.json("/asthma/projects").then(function(data) {
                 };
             }
             );
-        var sumCases = numCasesDim.groupAll().reduceSum(function(d) {return d.Num_Cases / 2});
-        var avgCases = ndx.groupAll().reduce(
+        var sumCases = numCasesDim.groupAll().reduceSum(function(d) {return d.Num_Cases});
+        var yearCases = yearDim.group().reduce(
             // add 
             function (p,v){
                 p.totalCases += v["Num_Cases"]; 
@@ -242,6 +241,176 @@ d3.json("/asthma/projects").then(function(data) {
                 };
             }
             );
+    var numCasesByState = yearDim.group().reduce(
+            // add 
+            function (p,v){
+                p.totalCases += v["Num_Cases"]; 
+                p.count++; 
+                p.avg = (p.totalCases / p.count);
+                return p;
+            },
+            // remove
+            function (p,v){
+                p.totalCases -= v["Num_Cases"]; 
+                p.count--; 
+                p.avg = (p.totalCases / p.count);
+                return p;
+            },
+            // init
+            function init (){ 
+                return {
+                totalCases: 0, 
+                count: 0,
+                avg: 0
+                };
+            }
+            );
+            console.log(new Date("2011-01-01 00:00:00").getTime());
+        var avgCases = ndx.groupAll().reduce(
+            // add 
+            function (p,v){
+                p.totalCases += v["Num_Cases"]; 
+                switch (v.Year.getTime()) {
+                    case (new Date("2011-01-01 00:00:00").getTime()) : {
+                        p.cases2011 += v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2012-01-01 00:00:00").getTime()) : {
+                        p.cases2012 += v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2013-01-01 00:00:00").getTime()) : {
+                        p.cases2013 += v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2014-01-01 00:00:00").getTime()) : {
+                        p.cases2014 += v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2015-01-01 00:00:00").getTime()) : {
+                        p.cases2015 += v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2016-01-01 00:00:00").getTime()) : {
+                        p.cases2016 += v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2017-01-01 00:00:00").getTime()) : {
+                        p.cases2017 += v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2018-01-01 00:00:00").getTime()) : {
+                        p.cases2018 += v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2019-01-01 00:00:00").getTime()) : {
+                        p.cases2019 += v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2020-01-01 00:00:00").getTime()) : {
+                        p.cases2020 += v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2021-01-01 00:00:00").getTime()) : {
+                        p.cases2021 += v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2022-01-01 00:00:00").getTime()) : {
+                        p.cases2022 += v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2023-01-01 00:00:00").getTime()) : {
+                        p.cases2023 += v["Num_Cases"]/4;
+                        break;
+                    }
+                }
+                p.count++; 
+                p.avg = (p.totalCases / p.count);
+                return p;
+            },
+            // remove
+            function (p,v){
+                p.totalCases -= v["Num_Cases"]; 
+                p.count--; 
+                switch (v.Year.getTime()) {
+                    case (new Date("2011-01-01 00:00:00").getTime()) : {
+                        p.cases2011 -= v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2012-01-01 00:00:00").getTime()) : {
+                        p.cases2012 -= v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2013-01-01 00:00:00").getTime()) : {
+                        p.cases2013 -= v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2014-01-01 00:00:00").getTime()) : {
+                        p.cases2014 -= v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2015-01-01 00:00:00").getTime()) : {
+                        p.cases2015 -= v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2016-01-01 00:00:00").getTime()) : {
+                        p.cases2016 -= v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2017-01-01 00:00:00").getTime()) : {
+                        p.cases2017 -= v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2018-01-01 00:00:00").getTime()) : {
+                        p.cases2018 -= v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2019-01-01 00:00:00").getTime()) : {
+                        p.cases2019 -= v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2020-01-01 00:00:00").getTime()) : {
+                        p.cases2020 -= v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2021-01-01 00:00:00").getTime()) : {
+                        p.cases2021 -= v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2022-01-01 00:00:00").getTime()) : {
+                        p.cases2022 -= v["Num_Cases"]/4;
+                        break;
+                    }
+                    case (new Date("2023-01-01 00:00:00").getTime()) : {
+                        p.cases2023 -= v["Num_Cases"]/4;
+                        break;
+                    }
+                }
+                p.avg = (p.totalCases / p.count);
+                return p;
+            },
+            // init
+            function init (){ 
+                return {
+                totalCases: 0,
+                cases2023: 0, 
+                cases2022: 0, 
+                cases2021: 0, 
+                cases2020: 0, 
+                cases2019: 0, 
+                cases2018: 0, 
+                cases2017: 0, 
+                cases2016: 0, 
+                cases2015: 0, 
+                cases2014: 0, 
+                cases2013: 0, 
+                cases2012: 0, 
+                cases2011: 0, 
+                count: 0,
+                avg: 0
+                };
+            }
+            );
 
         var yearChart = dc.barChart("#year-line-chart");
         var yearPercentChart = dc.lineChart("#percent-line-chart");
@@ -260,11 +429,14 @@ d3.json("/asthma/projects").then(function(data) {
         .html({
             some:"<span style=\"color:black; font-size: 60px;\">%number</span>",
           })
-        .group(sumCases);
+        .group(numCasesByState)
+        .valueAccessor(function(d) {
+            return sumCases.value() / 4;
+        });
 
-        totalCasesND.value = function() {
-            return sumCases.value() / (avgCases.value().count / 1017);
-        };
+        // totalCasesND.value = function() {
+        //     return sumCases.value() / (yearCases.value().count);
+        // };
 
         avgCasesND
         .formatNumber(d3.format("~r"))
@@ -285,7 +457,91 @@ d3.json("/asthma/projects").then(function(data) {
         .group(avgCases);
 
         avgPercentND.value = function() {
-            return (Math.round(avgCases.value().avg * 1000) / 1000);
+            var maxYear;
+            var minYear;
+            if (avgCases.value().cases2023 > 1) {
+                maxYear = avgCases.value().cases2023;
+                console.log(avgCases.value().cases2023);
+            }
+            else if (avgCases.value().cases2022 > 1) {
+                maxYear = avgCases.value().cases2022;
+            }
+            else if (avgCases.value().cases2021 > 1) {
+                maxYear = avgCases.value().cases2021;
+            }
+            else if (avgCases.value().cases2020 > 1) {
+                maxYear = avgCases.value().cases2020;
+            }
+            else if (avgCases.value().cases2019 > 1) {
+                maxYear = avgCases.value().cases2019;
+            }
+            else if (avgCases.value().cases2018 > 1) {
+                maxYear = avgCases.value().cases2018;
+            }
+            else if (avgCases.value().cases2017 > 1) {
+                maxYear = avgCases.value().cases2017;
+            }
+            else if (avgCases.value().cases2016 > 1) {
+                maxYear = avgCases.value().cases2016;
+            }
+            else if (avgCases.value().cases2015 > 1) {
+                maxYear = avgCases.value().cases2015;
+            }
+            else if (avgCases.value().cases2014 > 1) {
+                maxYear = avgCases.value().cases2014;
+            }
+            else if (avgCases.value().cases2013 > 1) {
+                maxYear = avgCases.value().cases2013;
+            }
+            else if (avgCases.value().cases2012 > 1) {
+                maxYear = avgCases.value().cases2012;
+            }
+            else if (avgCases.value().cases2011 > 1) {
+                maxYear = avgCases.value().cases2011;
+            }
+
+            if (avgCases.value().cases2011 > 0) {
+                minYear = avgCases.value().cases2011;
+            }
+            else if (avgCases.value().cases2012 > 0) {
+                minYear = avgCases.value().cases2012;
+            }
+            else if (avgCases.value().cases2013 > 0) {
+                minYear = avgCases.value().cases2013;
+            }
+            else if (avgCases.value().cases2014 > 0) {
+                minYear = avgCases.value().cases2014;
+            }
+            else if (avgCases.value().cases2015 > 0) {
+                minYear = avgCases.value().cases2015;
+            }
+            else if (avgCases.value().cases2016 > 0) {
+                minYear = avgCases.value().cases2016;
+            }
+            else if (avgCases.value().cases2017 > 0) {
+                minYear = avgCases.value().cases2017;
+            }
+            else if (avgCases.value().cases2018 > 0) {
+                minYear = avgCases.value().cases2018;
+            }
+            else if (avgCases.value().cases2019 > 0) {
+                minYear = avgCases.value().cases2019;
+            }
+            else if (avgCases.value().cases2020 > 0) {
+                minYear = avgCases.value().cases2020;
+            }
+            else if (avgCases.value().cases2021 > 0) {
+                minYear = avgCases.value().cases2021;
+            }
+            else if (avgCases.value().cases2022 > 0) {
+                minYear = avgCases.value().cases2022;
+            }
+            else if (avgCases.value().cases2023 > 0) {
+                minYear = avgCases.value().cases2023;
+            }
+
+            return maxYear - minYear;
+
         };
 
 
@@ -407,7 +663,7 @@ d3.json("/asthma/projects").then(function(data) {
         .width(null)
         .height(usChart.height() + usChart.width() / 3.7)
         .margins({ top: 10, left: 30, right: 30, bottom: 50})
-        .x(d3.scaleTime().domain([d3.timeYear.floor(new Date("2011-03-31 00:00:00")), d3.timeYear.ceil(new Date("2023-03-31 10:00:00"))]))
+        .x(d3.scaleTime().domain([d3.timeYear.floor(new Date("2011-03-31 00:00:00")), d3.timeYear.ceil(new Date("2024-03-31 10:00:00"))]))
         //.y(d3.scaleLinear().domain([6, 13]))
         .yAxisLabel("Percent of Population with Asthma")
         .xAxisLabel("Year")
