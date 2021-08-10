@@ -293,7 +293,7 @@ d3.json("/asthma/projects").then(function(data) {
         .width(null)
         .height(usChart.height() + usChart.width() / 3.6)
         .ordering(function(d){ return -d.value.avg})
-        .margins({ top: 10, left: 30, right: 10, bottom: 75})
+        .margins({ top: 10, left: 30, right: 30, bottom: 75})
         .dimension(ageDim)
         .group(percentByAge).valueAccessor(function(d) {
             if (d.key != 1)
@@ -318,7 +318,7 @@ d3.json("/asthma/projects").then(function(data) {
         .width(null)
         .height(usChart.height() + usChart.width() / 3.5)
         .ordering(function(d){ return d.value.avg})
-        .margins({ top: 10, left: 30, right: 10, bottom: 75})
+        .margins({ top: 10, left: 30, right: 30, bottom: 75})
         .dimension(eduDim)
         .group(percentByRace).valueAccessor(function(d) {
             if (d.key != 1)
@@ -342,7 +342,7 @@ d3.json("/asthma/projects").then(function(data) {
         .width(null)
         .height(usChart.height() + usChart.width() / 3.5)
         .ordering(function(d){ return -d.value.avg})
-        .margins({ top: 10, left: 30, right: 10, bottom: 75})
+        .margins({ top: 10, left: 30, right: 30, bottom: 75})
         .dimension(eduDim)
         .group(percentByEdu).valueAccessor(function(d) {
             if (d.key != 1)
@@ -365,6 +365,7 @@ d3.json("/asthma/projects").then(function(data) {
         yearCasesChart
         .ordering(function(d){ return -d.value.avg})
         .cap(10)
+        .margins({ top: 10, left: 10, right: 70, bottom: 50})
         .othersGrouper(false)
         .width(null)
         .height(usChart.height() + usChart.width() / 3.7)
@@ -379,7 +380,7 @@ d3.json("/asthma/projects").then(function(data) {
         .width(null)
         .height(usChart.height() + usChart.width() / 3.7)
         .ordering(function(d){ return -d.value.avg})
-        .margins({ top: 10, left: 30, right: 10, bottom: 75})
+        .margins({ top: 10, left: 30, right: 30, bottom: 75})
         .dimension(incomeDim)
         .group(percentByIncome).valueAccessor(function(d) {
             if (d.key != 1)
@@ -405,7 +406,7 @@ d3.json("/asthma/projects").then(function(data) {
         yearPercentChart
         .width(null)
         .height(usChart.height() + usChart.width() / 3.7)
-        .margins({ top: 10, left: 30, right: 10, bottom: 50})
+        .margins({ top: 10, left: 30, right: 30, bottom: 50})
         .x(d3.scaleTime().domain([d3.timeYear.floor(new Date("2011-03-31 00:00:00")), d3.timeYear.ceil(new Date("2023-03-31 10:00:00"))]))
         //.y(d3.scaleLinear().domain([6, 13]))
         .yAxisLabel("Percent of Population with Asthma")
