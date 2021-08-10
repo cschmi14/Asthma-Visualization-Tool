@@ -421,7 +421,7 @@ d3.json("/asthma/projects").then(function(data) {
         .transitionDuration(500)
         .xUnits(d3.timeYears)
         .renderHorizontalGridLines(true)
-        .mouseZoomable(true)
+        .renderDataPoints(true)
         .renderlet(
             function (yearChart) {
                 yearChart.selectAll('g.x text')
@@ -429,6 +429,8 @@ d3.json("/asthma/projects").then(function(data) {
                          .attr('transform', 'rotate(-65)');
             }
         );
+
+        yearPercentChart.render();
 
         usChart.width(null)
         .height(usChart.width() / 1.5)
