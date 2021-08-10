@@ -258,7 +258,7 @@ d3.json("/asthma/projects").then(function(data) {
         .formatNumber(d3.format(",d"))
         .valueAccessor(function(d){return d; })
         .html({
-            some:"<span style=\"color:black; font-size: 50px;\">%number</span>",
+            some:"<span style=\"color:black; font-size: 60px;\">%number</span>",
           })
         .group(sumCases);
 
@@ -269,7 +269,7 @@ d3.json("/asthma/projects").then(function(data) {
         avgCasesND
         .formatNumber(d3.format("~r"))
         .html({
-            some:"<span style=\"color:black; font-size: 50px;\">%number</span>",
+            some:"<span style=\"color:black; font-size: 60px;\">%number</span>",
           })
         .group(avgPercent);
 
@@ -280,7 +280,7 @@ d3.json("/asthma/projects").then(function(data) {
         avgPercentND
         .formatNumber(d3.format(",d"))
         .html({
-            some:"<span style=\"color:black; font-size: 50px;\">%number</span>",
+            some:"<span style=\"color:black; font-size: 60px;\">%number</span>",
           })
         .group(avgCases);
 
