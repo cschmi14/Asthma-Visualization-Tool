@@ -459,7 +459,6 @@ d3.json("/asthma/projects").then(function(data) {
             var minYear;
             if (avgCases.value().cases2023 > 1) {
                 maxYear = avgCases.value().cases2023;
-                console.log(avgCases.value().cases2023);
             }
             else if (avgCases.value().cases2022 > 1) {
                 maxYear = avgCases.value().cases2022;
