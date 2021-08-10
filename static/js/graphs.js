@@ -272,55 +272,55 @@ d3.json("/asthma/projects").then(function(data) {
                 p.totalCases += v["Num_Cases"]; 
                 switch (v.Year.getTime()) {
                     case (new Date("2011-01-01 00:00:00").getTime()) : {
-                        p.cases2011 += v["Num_Cases"]/4;
+                        p.cases2011 += v["Num_Cases"];
                         break;
                     }
                     case (new Date("2012-01-01 00:00:00").getTime()) : {
-                        p.cases2012 += v["Num_Cases"]/4;
+                        p.cases2012 += v["Num_Cases"];
                         break;
                     }
                     case (new Date("2013-01-01 00:00:00").getTime()) : {
-                        p.cases2013 += v["Num_Cases"]/4;
+                        p.cases2013 += v["Num_Cases"];
                         break;
                     }
                     case (new Date("2014-01-01 00:00:00").getTime()) : {
-                        p.cases2014 += v["Num_Cases"]/4;
+                        p.cases2014 += v["Num_Cases"];
                         break;
                     }
                     case (new Date("2015-01-01 00:00:00").getTime()) : {
-                        p.cases2015 += v["Num_Cases"]/4;
+                        p.cases2015 += v["Num_Cases"];
                         break;
                     }
                     case (new Date("2016-01-01 00:00:00").getTime()) : {
-                        p.cases2016 += v["Num_Cases"]/4;
+                        p.cases2016 += v["Num_Cases"];
                         break;
                     }
                     case (new Date("2017-01-01 00:00:00").getTime()) : {
-                        p.cases2017 += v["Num_Cases"]/4;
+                        p.cases2017 += v["Num_Cases"];
                         break;
                     }
                     case (new Date("2018-01-01 00:00:00").getTime()) : {
-                        p.cases2018 += v["Num_Cases"]/4;
+                        p.cases2018 += v["Num_Cases"];
                         break;
                     }
                     case (new Date("2019-01-01 00:00:00").getTime()) : {
-                        p.cases2019 += v["Num_Cases"]/4;
+                        p.cases2019 += v["Num_Cases"];
                         break;
                     }
                     case (new Date("2020-01-01 00:00:00").getTime()) : {
-                        p.cases2020 += v["Num_Cases"]/4;
+                        p.cases2020 += v["Num_Cases"];
                         break;
                     }
                     case (new Date("2021-01-01 00:00:00").getTime()) : {
-                        p.cases2021 += v["Num_Cases"]/4;
+                        p.cases2021 += v["Num_Cases"];
                         break;
                     }
                     case (new Date("2022-01-01 00:00:00").getTime()) : {
-                        p.cases2022 += v["Num_Cases"]/4;
+                        p.cases2022 += v["Num_Cases"];
                         break;
                     }
                     case (new Date("2023-01-01 00:00:00").getTime()) : {
-                        p.cases2023 += v["Num_Cases"]/4;
+                        p.cases2023 += v["Num_Cases"];
                         break;
                     }
                 }
@@ -334,55 +334,55 @@ d3.json("/asthma/projects").then(function(data) {
                 p.count--; 
                 switch (v.Year.getTime()) {
                     case (new Date("2011-01-01 00:00:00").getTime()) : {
-                        p.cases2011 -= v["Num_Cases"]/4;
+                        p.cases2011 -= v["Num_Cases"];
                         break;
                     }
                     case (new Date("2012-01-01 00:00:00").getTime()) : {
-                        p.cases2012 -= v["Num_Cases"]/4;
+                        p.cases2012 -= v["Num_Cases"];
                         break;
                     }
                     case (new Date("2013-01-01 00:00:00").getTime()) : {
-                        p.cases2013 -= v["Num_Cases"]/4;
+                        p.cases2013 -= v["Num_Cases"];
                         break;
                     }
                     case (new Date("2014-01-01 00:00:00").getTime()) : {
-                        p.cases2014 -= v["Num_Cases"]/4;
+                        p.cases2014 -= v["Num_Cases"];
                         break;
                     }
                     case (new Date("2015-01-01 00:00:00").getTime()) : {
-                        p.cases2015 -= v["Num_Cases"]/4;
+                        p.cases2015 -= v["Num_Cases"];
                         break;
                     }
                     case (new Date("2016-01-01 00:00:00").getTime()) : {
-                        p.cases2016 -= v["Num_Cases"]/4;
+                        p.cases2016 -= v["Num_Cases"];
                         break;
                     }
                     case (new Date("2017-01-01 00:00:00").getTime()) : {
-                        p.cases2017 -= v["Num_Cases"]/4;
+                        p.cases2017 -= v["Num_Cases"];
                         break;
                     }
                     case (new Date("2018-01-01 00:00:00").getTime()) : {
-                        p.cases2018 -= v["Num_Cases"]/4;
+                        p.cases2018 -= v["Num_Cases"];
                         break;
                     }
                     case (new Date("2019-01-01 00:00:00").getTime()) : {
-                        p.cases2019 -= v["Num_Cases"]/4;
+                        p.cases2019 -= v["Num_Cases"];
                         break;
                     }
                     case (new Date("2020-01-01 00:00:00").getTime()) : {
-                        p.cases2020 -= v["Num_Cases"]/4;
+                        p.cases2020 -= v["Num_Cases"];
                         break;
                     }
                     case (new Date("2021-01-01 00:00:00").getTime()) : {
-                        p.cases2021 -= v["Num_Cases"]/4;
+                        p.cases2021 -= v["Num_Cases"];
                         break;
                     }
                     case (new Date("2022-01-01 00:00:00").getTime()) : {
-                        p.cases2022 -= v["Num_Cases"]/4;
+                        p.cases2022 -= v["Num_Cases"];
                         break;
                     }
                     case (new Date("2023-01-01 00:00:00").getTime()) : {
-                        p.cases2023 -= v["Num_Cases"]/4;
+                        p.cases2023 -= v["Num_Cases"];
                         break;
                     }
                 }
@@ -540,7 +540,7 @@ d3.json("/asthma/projects").then(function(data) {
                 minYear = avgCases.value().cases2023;
             }
 
-            return maxYear - minYear;
+            return (maxYear - minYear) / 4;
 
         };
 
