@@ -454,9 +454,7 @@ d3.json("/asthma/projects").then(function(data) {
         .html({
             some:"<span style=\"color:black; font-size: 60px;\">%number</span>",
           })
-        .group(avgCases);
-
-        avgPercentND.value = function() {
+        .group(avgCases).valueAccessor(function() {
             var maxYear;
             var minYear;
             if (avgCases.value().cases2023 > 1) {
@@ -540,10 +538,11 @@ d3.json("/asthma/projects").then(function(data) {
                 minYear = avgCases.value().cases2023;
             }
 
-            return (maxYear - minYear) / 4;
+            return ((maxYear - minYear) / 4);
 
-        };
+        }
 
+        );
 
         ageCasesChart
         .width(null)
