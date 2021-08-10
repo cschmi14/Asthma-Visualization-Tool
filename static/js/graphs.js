@@ -434,10 +434,6 @@ d3.json("/asthma/projects").then(function(data) {
             return sumCases.value() / 4;
         });
 
-        // totalCasesND.value = function() {
-        //     return sumCases.value() / (yearCases.value().count);
-        // };
-
         avgCasesND
         .formatNumber(d3.format("~r"))
         .html({
@@ -446,7 +442,8 @@ d3.json("/asthma/projects").then(function(data) {
         .group(avgPercent);
 
         avgCasesND.value = function() {
-            return (Math.round(avgCases.value().cases2022 * 1000) / 1000);
+            //return (Math.round(avgPercent.value().avg * 1000) / 1000);
+            return new Date("2022-01-01 00:00:00").getTime();
         };
 
         avgPercentND
