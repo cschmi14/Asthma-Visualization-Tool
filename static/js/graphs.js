@@ -5,7 +5,6 @@ d3.json("/asthma/projects").then(function(data) {
         dc.config.defaultColors(d3.schemeCategory10);
 
         var dateParse = d3.timeParse("%Y");
-        var format = d3.timeFormat("%Y");
         var dateTime = 0;
         data.forEach(function(d) {
             d["Year"] = parseInt(d["Year"]);
@@ -684,10 +683,11 @@ d3.json("/asthma/projects").then(function(data) {
             function (yearChart) {
                 yearChart.selectAll('g.x text')
                          .attr('dx', '-20')
-                         .attr('transform', 'rotate(-65)');
+                         .attr('transform', 'rotate(-65)')
             }
         );
 
+        var xAxis = yearPercentChart.xAxis().tickFormat(d3.format('d'));
 
         usChart.width(null)
         .height(function() {
