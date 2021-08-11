@@ -670,6 +670,7 @@ d3.json("/asthma/projects").then(function(data) {
         .elasticY(true)
         .elasticX(true)
         .yAxisPadding(0.5)
+        .xAxisPadding(0.5)
         .dimension(yearDim)
         .group(percentByYear)
         .valueAccessor(function(d) {
