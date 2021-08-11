@@ -5,9 +5,16 @@ d3.json("/asthma/projects").then(function(data) {
         dc.config.defaultColors(d3.schemeCategory10);
 
         var dateParse = d3.timeParse("%Y");
+        var format = d3.timeFormat("%Y");
+        var dateTime = 0;
         data.forEach(function(d) {
-            d["Year"] = dateParse(d["Year"]);
+            d["Year"] = parseInt(d["Year"]);
+            // d["Year"] = format(dateTime);
+            dateTime = d["Year"];
+            // d["Year"] = new Date(dateString.replace(' ', 'T'))
         });
+
+        console.log(dateTime);
 
         data.forEach(function(d) {
             if (d.Income == "") {
@@ -270,56 +277,56 @@ d3.json("/asthma/projects").then(function(data) {
             // add 
             function (p,v){
                 p.totalCases += v["Num_Cases"]; 
-                switch (v.Year.getTime()) {
-                    case (new Date("2011-01-01 00:00:00").getTime()) : {
+                switch (v.Year) {
+                    case (2011) : {
                         p.cases2011 += v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2012-01-01 00:00:00").getTime()) : {
+                    case (2012) : {
                         p.cases2012 += v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2013-01-01 00:00:00").getTime()) : {
+                    case (2013) : {
                         p.cases2013 += v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2014-01-01 00:00:00").getTime()) : {
+                    case (2014) : {
                         p.cases2014 += v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2015-01-01 00:00:00").getTime()) : {
+                    case (2015) : {
                         p.cases2015 += v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2016-01-01 00:00:00").getTime()) : {
+                    case (2016) : {
                         p.cases2016 += v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2017-01-01 00:00:00").getTime()) : {
+                    case (2017) : {
                         p.cases2017 += v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2018-01-01 00:00:00").getTime()) : {
+                    case (2018) : {
                         p.cases2018 += v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2019-01-01 00:00:00").getTime()) : {
+                    case (2019) : {
                         p.cases2019 += v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2020-01-01 00:00:00").getTime()) : {
+                    case (2020) : {
                         p.cases2020 += v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2021-01-01 00:00:00").getTime()) : {
+                    case (2021) : {
                         p.cases2021 += v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2022-01-01 00:00:00").getTime()) : {
+                    case (2022) : {
                         p.cases2022 += v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2023-01-01 00:00:00").getTime()) : {
+                    case (2023) : {
                         p.cases2023 += v["Num_Cases"];
                         break;
                     }
@@ -332,56 +339,56 @@ d3.json("/asthma/projects").then(function(data) {
             function (p,v){
                 p.totalCases -= v["Num_Cases"]; 
                 p.count--; 
-                switch (v.Year.getTime()) {
-                    case (new Date("2011-01-01 00:00:00").getTime()) : {
+                switch (v.Year) {
+                    case (2011) : {
                         p.cases2011 -= v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2012-01-01 00:00:00").getTime()) : {
+                    case (2012) : {
                         p.cases2012 -= v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2013-01-01 00:00:00").getTime()) : {
+                    case (2013) : {
                         p.cases2013 -= v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2014-01-01 00:00:00").getTime()) : {
+                    case (2014) : {
                         p.cases2014 -= v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2015-01-01 00:00:00").getTime()) : {
+                    case (2015) : {
                         p.cases2015 -= v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2016-01-01 00:00:00").getTime()) : {
+                    case (2016) : {
                         p.cases2016 -= v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2017-01-01 00:00:00").getTime()) : {
+                    case (2017) : {
                         p.cases2017 -= v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2018-01-01 00:00:00").getTime()) : {
+                    case (2018) : {
                         p.cases2018 -= v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2019-01-01 00:00:00").getTime()) : {
+                    case (2019) : {
                         p.cases2019 -= v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2020-01-01 00:00:00").getTime()) : {
+                    case (2020) : {
                         p.cases2020 -= v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2021-01-01 00:00:00").getTime()) : {
+                    case (2021) : {
                         p.cases2021 -= v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2022-01-01 00:00:00").getTime()) : {
+                    case (2022) : {
                         p.cases2022 -= v["Num_Cases"];
                         break;
                     }
-                    case (new Date("2023-01-01 00:00:00").getTime()) : {
+                    case (2023) : {
                         p.cases2023 -= v["Num_Cases"];
                         break;
                     }
@@ -442,8 +449,7 @@ d3.json("/asthma/projects").then(function(data) {
         .group(avgPercent);
 
         avgCasesND.value = function() {
-            //return (Math.round(avgPercent.value().avg * 1000) / 1000);
-            return new Date("2022-01-01 00:00:00").getTime();
+            return (Math.round(avgPercent.value().avg * 1000) / 1000);
         };
 
         avgPercentND
@@ -658,23 +664,22 @@ d3.json("/asthma/projects").then(function(data) {
         .width(null)
         .height(usChart.height() + usChart.width() / 3.7)
         .margins({ top: 10, left: 30, right: 30, bottom: 50})
-        .x(d3.scaleTime().domain([d3.timeYear.floor(new Date("2011-03-31 00:00:00")), d3.timeYear.ceil(new Date("2024-03-31 10:00:00"))]))
+        .x(d3.scaleLinear().domain([2011, 2024]))
         //.y(d3.scaleLinear().domain([6, 13]))
         .yAxisLabel("Percent of Population with Asthma")
         .xAxisLabel("Year")
         .elasticY(true)
         .elasticX(true)
         .yAxisPadding(0.5)
-        .round(d3.timeYear.round)
         .dimension(yearDim)
         .group(percentByYear)
         .valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
         })
         .transitionDuration(500)
-        .xUnits(d3.timeYears)
         .renderHorizontalGridLines(true)
-        .renderDataPoints(true)
+        .round(d3.format("d"))
+        .brushOn(true)
         .renderlet(
             function (yearChart) {
                 yearChart.selectAll('g.x text')
