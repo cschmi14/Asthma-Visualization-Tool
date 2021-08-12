@@ -864,7 +864,10 @@ d3.json("/asthma/projects").then(function(data) {
                 return minDate;
             }
 
+            var counter = 0;
+
             window.addEventListener('resize', function() {
+            if (counter > 0) {
                 totalCasesND
         .formatNumber(d3.format(",d"))
         .valueAccessor(function(d){return d; })
@@ -1064,7 +1067,12 @@ d3.json("/asthma/projects").then(function(data) {
 
         ageCasesChart
         .width(null)
-        .height(usChart.height() + usChart.width() / 100)
+        .height(function() {
+            if ((usChart.height() + usChart.width() / 100) > 250)
+                return usChart.height() + usChart.width() / 100;
+            else 
+                return 250;
+        })
         .ordering(function(d){ return -d.value.avg})
         .margins({ top: 10, left: 40, right: 40, bottom: 75})
         .dimension(ageDim)
@@ -1074,10 +1082,10 @@ d3.json("/asthma/projects").then(function(data) {
         })
         .x(d3.scaleOrdinal().domain(["18-24", "55-64", "45-54", "35-44", "25-34", "65+"]))
         .xUnits(dc.units.ordinal)
-        .yAxisLabel("Average Asthma Percentage")
+        .yAxisLabel("Asthma Percentage")
         .xAxisLabel("Age")
         .elasticY(true)
-        .transitionDuration(0)
+        .transitionDuration(200)
         .gap(10)
         .renderlet(
             function (yearChart) {
@@ -1089,7 +1097,12 @@ d3.json("/asthma/projects").then(function(data) {
         
         raceCasesChart
         .width(null)
-        .height(usChart.height() + usChart.width() / 100)
+        .height(function() {
+            if ((usChart.height() + usChart.width() / 100) > 250)
+                return usChart.height() + usChart.width() / 100;
+            else 
+                return 250;
+        })
         .ordering(function(d){ return d.value.avg})
         .margins({ top: 10, left: 40, right: 40, bottom: 80})
         .dimension(eduDim)
@@ -1099,10 +1112,10 @@ d3.json("/asthma/projects").then(function(data) {
         })
         .x(d3.scaleOrdinal().domain(["Multirace NH", "Black NH", "White NH", "Hispanic", "Other NH"]))
         .xUnits(dc.units.ordinal)
-        .yAxisLabel("Average Asthma Percentage")
+        .yAxisLabel("Asthma Percentage")
         .xAxisLabel("Race")
         .elasticY(true)
-        .transitionDuration(0)
+        .transitionDuration(200)
         .gap(10)
         .renderlet(
             function (yearChart) {
@@ -1113,7 +1126,12 @@ d3.json("/asthma/projects").then(function(data) {
 
         eduCasesChart
         .width(null)
-        .height(usChart.height() + usChart.width() / 100)
+        .height(function() {
+            if ((usChart.height() + usChart.width() / 100) > 250)
+                return usChart.height() + usChart.width() / 100;
+            else 
+                return 250;
+        })
         .ordering(function(d){ return -d.value.avg})
         .margins({ top: 10, left: 40, right: 40, bottom: 85})
         .dimension(eduDim)
@@ -1123,10 +1141,10 @@ d3.json("/asthma/projects").then(function(data) {
         })
         .x(d3.scaleOrdinal().domain(["HS Nongrad", "HS Grad", "Some Coll", "Coll Grad"]))
         .xUnits(dc.units.ordinal)
-        .yAxisLabel("Average Asthma Percentage")
+        .yAxisLabel("Asthma Percentage")
         .xAxisLabel("Education")
         .elasticY(true)
-        .transitionDuration(0)
+        .transitionDuration(200)
         .gap(10)
         .renderlet(
             function (yearChart) {
@@ -1141,20 +1159,30 @@ d3.json("/asthma/projects").then(function(data) {
         .margins({ top: 10, left: 5, right: 80, bottom: 50})
         .othersGrouper(false)
         .width(null)
-        .height(usChart.height() + usChart.width() / 100)
+        .height(function() {
+            if ((usChart.height() + usChart.width() / 100) > 250)
+                return usChart.height() + usChart.width() / 100;
+            else 
+                return 250;
+        })
         .dimension(stateNameDim)
         .group(percentByState).valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
         })
-        .transitionDuration(0)
+        .transitionDuration(200)
         .elasticX(true)
         .xAxis().ticks(6);
 
         yearChart
         .width(null)
-        .height(usChart.height() + usChart.width() / 100)
+        .height(function() {
+            if ((usChart.height() + usChart.width() / 100) > 250)
+                return usChart.height() + usChart.width() / 100000000;
+            else 
+                return 250;
+        })
         .ordering(function(d){ return -d.value.avg})
-        .margins({ top: 10, left: 40, right: 40, bottom: 90})
+        .margins({ top: 10, left: 40, right: 40, bottom: 85})
         .dimension(incomeDim)
         .group(percentByIncome).valueAccessor(function(d) {
             if (d.key != 1)
@@ -1162,10 +1190,10 @@ d3.json("/asthma/projects").then(function(data) {
         })
         .x(d3.scaleOrdinal().domain(["< $15,000", "$15-$24,999", "$25-$49,999", "$50-$74,999", ">=$75,000"]))
         .xUnits(dc.units.ordinal)
-        .yAxisLabel("Average Asthma Percentage")
+        .yAxisLabel("Asthma Percentage")
         .xAxisLabel("Income")
         .elasticY(true)
-        .transitionDuration(0)
+        .transitionDuration(200)
         .gap(10)
         .renderlet(
             function (yearChart) {
@@ -1179,8 +1207,13 @@ d3.json("/asthma/projects").then(function(data) {
 
         yearPercentChart
         .width(null)
-        .height(usChart.height() + usChart.width() / 100)
-        .margins({ top: 10, left: 30, right: 30, bottom: 50})
+        .height(function() {
+            if ((usChart.height() + usChart.width() / 100) > 250)
+                return usChart.height() + usChart.width() / 100;
+            else 
+                return 250;
+        })
+        .margins({ top: 10, left: 40, right: 30, bottom: 65})
         .x(d3.scaleLinear().domain([2011, 2024]))
         //.y(d3.scaleLinear().domain([6, 13]))
         .yAxisLabel("Percent of Population with Asthma")
@@ -1194,7 +1227,7 @@ d3.json("/asthma/projects").then(function(data) {
         .valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
         })
-        .transitionDuration(0)
+        .transitionDuration(200)
         .renderHorizontalGridLines(true)
         .round(d3.format("d"))
         .brushOn(true)
@@ -1209,7 +1242,7 @@ d3.json("/asthma/projects").then(function(data) {
         var xAxis = yearPercentChart.xAxis().tickFormat(d3.format('d'));
 
         usChart.width(null)
-        .transitionDuration(0)
+        .transitionDuration(200)
         .height(function() {
             if (window.innerWidth < 768) {
                 return usChart.width() / 2;
@@ -1234,7 +1267,7 @@ d3.json("/asthma/projects").then(function(data) {
                         + "Asthma Percentage: " + (p["value"]) + "%";
             });
 
-            dc.renderAll();
+            dc.redrawAll();
 
             function AddXAxis(chartToUpdate, displayText)
             {
@@ -1300,6 +1333,11 @@ d3.json("/asthma/projects").then(function(data) {
                 })
                 return minDate;
             }
+        counter = 0;
+        }
+        else {
+            counter++;
+        }
             })
 
     });
