@@ -222,7 +222,7 @@ d3.json("/asthma/projects").then(function(data) {
                 };
             }
             );
-        var sumCases = numCasesDim.groupAll().reduceSum(function(d) {return d.Num_Cases});
+        var sumCases = ndx.groupAll().reduceSum(function(d) {return d.Num_Cases});
         var yearCases = yearDim.group().reduce(
             // add 
             function (p,v){
@@ -435,9 +435,90 @@ d3.json("/asthma/projects").then(function(data) {
         .html({
             some:"<span style=\"color:black; font-size: 60px;\">%number</span>",
           })
-        .group(numCasesByState)
-        .valueAccessor(function(d) {
-            return sumCases.value() / 4;
+        .group(avgCases).valueAccessor(function(d) {
+            var maxYear;
+            var minYear;
+            if (avgCases.value().cases2023 > 1) {
+                maxYear = 2023;
+            }
+            else if (avgCases.value().cases2022 > 1) {
+                maxYear = 2022;
+            }
+            else if (avgCases.value().cases2021 > 1) {
+                maxYear = 2021;
+            }
+            else if (avgCases.value().cases2020 > 1) {
+                maxYear = 2020;
+            }
+            else if (avgCases.value().cases2019 > 1) {
+                maxYear = 2019;
+            }
+            else if (avgCases.value().cases2018 > 1) {
+                maxYear = 2018;
+            }
+            else if (avgCases.value().cases2017 > 1) {
+                maxYear = 2017;
+            }
+            else if (avgCases.value().cases2016 > 1) {
+                maxYear = 2016;
+            }
+            else if (avgCases.value().cases2015 > 1) {
+                maxYear = 2015;
+            }
+            else if (avgCases.value().cases2014 > 1) {
+                maxYear = 2014;
+            }
+            else if (avgCases.value().cases2013 > 1) {
+                maxYear = 2013;
+            }
+            else if (avgCases.value().cases2012 > 1) {
+                maxYear = 2012;
+            }
+            else if (avgCases.value().cases2011 > 1) {
+                maxYear = 2011;
+            }
+
+            if (avgCases.value().cases2011 > 0) {
+                minYear = 2011;
+            }
+            else if (avgCases.value().cases2012 > 0) {
+                minYear = 2012;
+            }
+            else if (avgCases.value().cases2013 > 0) {
+                minYear = 2013;
+            }
+            else if (avgCases.value().cases2014 > 0) {
+                minYear = 2014;
+            }
+            else if (avgCases.value().cases2015 > 0) {
+                minYear = 2015;
+            }
+            else if (avgCases.value().cases2016 > 0) {
+                minYear = 2016;
+            }
+            else if (avgCases.value().cases2017 > 0) {
+                minYear = 2017;
+            }
+            else if (avgCases.value().cases2018 > 0) {
+                minYear = 2018;
+            }
+            else if (avgCases.value().cases2019 > 0) {
+                minYear = 2019;
+            }
+            else if (avgCases.value().cases2020 > 0) {
+                minYear = 2020;
+            }
+            else if (avgCases.value().cases2021 > 0) {
+                minYear = 2021;
+            }
+            else if (avgCases.value().cases2022 > 0) {
+                minYear = 2022;
+            }
+            else if (avgCases.value().cases2023 > 0) {
+                minYear = 2023;
+            }
+
+            return (sumCases.value() / ((maxYear - minYear) * 4));
         });
 
         avgCasesND
