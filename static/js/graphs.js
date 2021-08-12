@@ -641,7 +641,7 @@ d3.json("/asthma/projects").then(function(data) {
         .yAxisLabel("Average Asthma Percentage")
         .xAxisLabel("Age")
         .elasticY(true)
-        .transitionDuration(500)
+        .transitionDuration(0)
         .gap(10)
         .renderlet(
             function (yearChart) {
@@ -666,7 +666,7 @@ d3.json("/asthma/projects").then(function(data) {
         .yAxisLabel("Average Asthma Percentage")
         .xAxisLabel("Race")
         .elasticY(true)
-        .transitionDuration(500)
+        .transitionDuration(0)
         .gap(10)
         .renderlet(
             function (yearChart) {
@@ -690,7 +690,7 @@ d3.json("/asthma/projects").then(function(data) {
         .yAxisLabel("Average Asthma Percentage")
         .xAxisLabel("Education")
         .elasticY(true)
-        .transitionDuration(500)
+        .transitionDuration(0)
         .gap(10)
         .renderlet(
             function (yearChart) {
@@ -710,6 +710,7 @@ d3.json("/asthma/projects").then(function(data) {
         .group(percentByState).valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
         })
+        .transitionDuration(0)
         .elasticX(true)
         .xAxis().ticks(6);
 
@@ -728,7 +729,7 @@ d3.json("/asthma/projects").then(function(data) {
         .yAxisLabel("Average Asthma Percentage")
         .xAxisLabel("Income")
         .elasticY(true)
-        .transitionDuration(500)
+        .transitionDuration(0)
         .gap(10)
         .renderlet(
             function (yearChart) {
@@ -757,7 +758,7 @@ d3.json("/asthma/projects").then(function(data) {
         .valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
         })
-        .transitionDuration(500)
+        .transitionDuration(0)
         .renderHorizontalGridLines(true)
         .round(d3.format("d"))
         .brushOn(true)
@@ -772,6 +773,7 @@ d3.json("/asthma/projects").then(function(data) {
         var xAxis = yearPercentChart.xAxis().tickFormat(d3.format('d'));
 
         usChart.width(null)
+        .transitionDuration(0)
         .height(function() {
             if (window.innerWidth < 768) {
                 return usChart.width() / 2;
@@ -861,6 +863,35 @@ d3.json("/asthma/projects").then(function(data) {
                 })
                 return minDate;
             }
+
+            window.addEventListener('resize', function() {
+                usChart.width(null)
+        .transitionDuration(0)
+        .height(function() {
+            if (window.innerWidth < 768) {
+                return usChart.width() / 2;
+            }
+            return usChart.width() / 1.5;
+        })
+        .dimension(stateNameDim)
+            .group(percentByState).valueAccessor(function(d) {
+                return Math.round(d.value.avg * 1000) / 1000;
+            })
+            .colors(["#E2F2FF", "#C4E4FF", "#9ED2FF", "#81C5FF", "#6BBAFF", "#51AEFF", "#36A2FF", "#1E96FF", "#0089FF", "#0061B5"])
+            .colorDomain([5, 18])
+            .overlayGeoJson(statesJson["features"], "state", function (d) {
+                return d.properties.name;
+            })
+            .projection(d3.geoAlbersUsa()
+                        .scale((usChart.height() + usChart.width()) / 1.7)
+                        .translate([usChart.width() / 2, usChart.height() / 2]))
+            .title(function (p) {
+                return "State: " + p["key"]
+                        + "\n"
+                        + "Asthma Percentage: " + (p["value"]) + "%";
+            });
+                dc.renderAll();
+            })
 
     });
 });
