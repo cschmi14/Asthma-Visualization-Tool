@@ -4,32 +4,21 @@ d3.json("/asthma/projects").then(function(data) {
         console.log(data);
         dc.config.defaultColors(d3.schemeCategory10);
 
-        var dateParse = d3.timeParse("%Y");
-        var dateTime = 0;
         data.forEach(function(d) {
             d["Year"] = parseInt(d["Year"]);
-            // d["Year"] = format(dateTime);
-            dateTime = d["Year"];
-            // d["Year"] = new Date(dateString.replace(' ', 'T'))
         });
-
-        console.log(dateTime);
 
         data.forEach(function(d) {
             if (d.Income == "") {
-                //delete d.Income;
                 d.Income = "1";
             }
             if (d.Race == "") {
-                //delete d.Race;
                 d.Race = "1";
             }
             if (d.Education == "") {
-                //delete d.Education;
                 d.Education = "1";
             }
             if (d.Age == "") {
-                //delete d.Age;
                 d.Age = "1";
             }
         });
