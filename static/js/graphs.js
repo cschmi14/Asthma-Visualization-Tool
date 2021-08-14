@@ -630,7 +630,7 @@ d3.json("/asthma/projects").then(function(data) {
         .yAxisLabel("Average Asthma Percentage")
         .xAxisLabel("Age")
         .elasticY(true)
-        .transitionDuration(0)
+        .transitionDuration(200)
         .gap(10)
         .renderlet(
             function (yearChart) {
@@ -655,7 +655,7 @@ d3.json("/asthma/projects").then(function(data) {
         .yAxisLabel("Average Asthma Percentage")
         .xAxisLabel("Race")
         .elasticY(true)
-        .transitionDuration(0)
+        .transitionDuration(200)
         .gap(10)
         .renderlet(
             function (yearChart) {
@@ -679,7 +679,7 @@ d3.json("/asthma/projects").then(function(data) {
         .yAxisLabel("Average Asthma Percentage")
         .xAxisLabel("Education")
         .elasticY(true)
-        .transitionDuration(0)
+        .transitionDuration(200)
         .gap(10)
         .renderlet(
             function (yearChart) {
@@ -699,7 +699,7 @@ d3.json("/asthma/projects").then(function(data) {
         .group(percentByState).valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
         })
-        .transitionDuration(0)
+        .transitionDuration(200)
         .elasticX(true)
         .xAxis().ticks(6);
 
@@ -718,7 +718,7 @@ d3.json("/asthma/projects").then(function(data) {
         .yAxisLabel("Average Asthma Percentage")
         .xAxisLabel("Income")
         .elasticY(true)
-        .transitionDuration(0)
+        .transitionDuration(200)
         .gap(10)
         .renderlet(
             function (yearChart) {
@@ -747,7 +747,7 @@ d3.json("/asthma/projects").then(function(data) {
         .valueAccessor(function(d) {
             return Math.round(d.value.avg * 1000) / 1000;
         })
-        .transitionDuration(0)
+        .transitionDuration(200)
         .renderHorizontalGridLines(true)
         .round(d3.format("d"))
         .brushOn(true)
@@ -762,7 +762,7 @@ d3.json("/asthma/projects").then(function(data) {
         var xAxis = yearPercentChart.xAxis().tickFormat(d3.format('d'));
 
         usChart.width(null)
-        .transitionDuration(0)
+        .transitionDuration(200)
         .height(function() {
             if (window.innerWidth < 768) {
                 return usChart.width() / 2;
