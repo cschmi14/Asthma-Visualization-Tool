@@ -1256,7 +1256,7 @@ d3.json("/asthma/projects").then(function(data) {
                             + "\n"
                             + "Asthma Percentage: " + (p["value"]) + "%";
                 });
-    
+
                 dc.redrawAll();
     
                 function AddXAxis(chartToUpdate, displayText)
@@ -1730,7 +1730,7 @@ d3.json("/asthma/projects").then(function(data) {
                         + "\n"
                         + "Asthma Percentage: " + (p["value"]) + "%";
             });
-
+            dc.renderAll();
             dc.redrawAll();
 
             function AddXAxis(chartToUpdate, displayText)
