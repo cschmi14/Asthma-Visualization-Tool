@@ -855,6 +855,7 @@ d3.json("/asthma/projects").then(function(data) {
 
             var counter = 0;
 
+            if (window.DeviceOrientationEvent) {
             window.addEventListener('deviceorientation', function() {
                 if (counter > 0) {
                     totalCasesND
@@ -1327,7 +1328,7 @@ d3.json("/asthma/projects").then(function(data) {
             else {
                 counter++;
             }
-                })
+                })}
 
             window.addEventListener('resize', function() {
             if (counter > 0) {
