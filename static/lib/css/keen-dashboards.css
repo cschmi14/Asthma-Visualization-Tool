@@ -10,7 +10,7 @@ body.application {
 body.application > .container-fluid {
   padding-left: 0px;
   padding-right: 0px;
-  max-width: 950px;
+  max-width: 900px;
 }
 body.application div[class^="col-"] {
   padding-left: 5px;
