@@ -507,7 +507,7 @@ d3.json("/asthma/projects").then(function(data) {
                 minYear = 2023;
             }
 
-            return (sumCases.value() / ((maxYear - minYear) * 4));
+            return (sumCases.value() / ((maxYear - minYear + 1) * 4));
         });
 
         avgCasesND
@@ -946,7 +946,7 @@ d3.json("/asthma/projects").then(function(data) {
                 minYear = 2023;
             }
 
-            return (sumCases.value() / ((maxYear - minYear) * 4));
+            return (sumCases.value() / ((maxYear - minYear + 1) * 4));
         });
 
         avgCasesND
